@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="meu_primeiro_modelo_action" model="ir.actions.act_window">
-        <field name="name"> Nossa Primeira Ação</field>
+        <field name="name"> Minha Primeira Ação</field>
         <field name="res_model">meu.primeiro.modelo</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
