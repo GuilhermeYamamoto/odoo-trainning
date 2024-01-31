@@ -6,3 +6,4 @@ class MeuPrimeiroModulo(models.Model):
 
     campo1 = fields.Integer(string="Campo 1")
 
+    
