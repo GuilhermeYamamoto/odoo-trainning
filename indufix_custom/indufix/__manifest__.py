@@ -3,5 +3,8 @@
     'version': '1.0',
     'description': 'trainning',
     'summary': 'trainning',
-    'author': 'Guilherme'
+    'author': 'Guilherme',
+    "depends": [
+        "sale"
+    ]
 }
