@@ -2,9 +2,9 @@
 <odoo>
     <record id="meu_primeiro_modelo_action" model="ir.actions.act_window">
         <field name="name"> Nossa Primeira Ação</field>
-        <field name="res_model">meu.primeiro.modelo</fields>
-        <field name="view_mode">tree,form</fields>
-        <field name="domain">[]</fields>
-        <field name="context">{}</fields>
+        <field name="res_model">meu.primeiro.modelo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
     </record>
 </odoo>
