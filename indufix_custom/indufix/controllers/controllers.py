@@ -30,7 +30,7 @@ class apiBitrix(http.Controller):
 
             # Restante do seu código...
 
-            json_data = {'result': data}
+            json_data = {'result': countries}
 
             return Response(json.dumps(json_data), content_type='application/json;charset=utf-8', status=200)
 
