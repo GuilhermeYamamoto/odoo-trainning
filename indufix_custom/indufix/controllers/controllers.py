@@ -2,8 +2,8 @@ import sys
 import json
 import logging
 
-from odoo import http, tools
-from odoo.http import content_disposition, dispatch_rpc, request, serialize_exception as _serialize_exception, Response
+from odoo import http
+from odoo.http import request as Response
 
 _logger = logging.getLogger(__name__)
 
@@ -18,14 +18,14 @@ class apiBitrix(http.Controller):
 
         return log
     """
-
+    
     ###################
     ### METODOS GET ###
     ###################
-    @http.route('/api/bitrix', type='http', methods=['GET'], auth='none', csrf=False)
+    @http.route('/api/bitrix/', type='http', methods=['GET'], auth='public')
     def get_bitrix(self, **kwargs):
         try:
-            countries = request.env['res.partner'].search([])
+            countries = request.env['res.partner'].sudo().search([])
 
             # if request.httprequest.data:
             #    domain = json.loads(request.httprequest.data)
