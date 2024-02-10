@@ -3,7 +3,7 @@ import json
 import logging
 
 from odoo import http
-from odoo.http import request, Response
+from odoo.http import request as Response
 
 _logger = logging.getLogger(__name__)
 
@@ -26,8 +26,8 @@ class apiBitrix(http.Controller):
     def get_bitrix(self, **kwargs):
         try:
             _logger.info('Iniciando o método get_bitrix')
-            countries = request.env['res.partner'].sudo().search([])
-
+            # countries = request.env['res.partner'].sudo().search([])
+            countries = ''
             # Restante do seu código...
 
             json_data = {'result': countries}
