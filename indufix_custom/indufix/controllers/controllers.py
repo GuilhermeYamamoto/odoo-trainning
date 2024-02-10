@@ -27,7 +27,7 @@ class apiBitrix(http.Controller):
         try:
             _logger.info('Iniciando o método get_bitrix')
             # countries = request.env['res.partner'].sudo().search([])
-            countries = ''
+            countries = 'teste'
             # Restante do seu código...
 
             json_data = {'result': countries}
