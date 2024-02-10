@@ -26,7 +26,7 @@ class apiBitrix(http.Controller):
     def get_bitrix(self, **kwargs):
         try:
             _logger.info('Iniciando o método get_bitrix')
-            countries = request.env['res.partner'].sudo().search([])
+            countries = Response.env['res.partner'].sudo().search([])
 
             # Restante do seu código...
 
