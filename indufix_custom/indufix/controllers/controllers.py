@@ -8,7 +8,6 @@ from odoo.http import content_disposition, dispatch_rpc, request, serialize_exce
 # _logger = logging.getLogger(__name__)
 
 class apiBitrix(http.Controller):
-    """
     def _log(self, line_data, status, message, line=None):
         
         log = {'line_id': line_data['id_processamento'], 'status': status, 'message': message}
@@ -17,31 +16,31 @@ class apiBitrix(http.Controller):
             log['dados_enviados'] = line
 
         return log
-    """
-    
+
     ###################
     ### METODOS GET ###
     ###################
     @http.route('/api/bitrix', type='http', methods=['GET'], auth='public', csrf=False)
     def get_bitrix(self, **kwargs):
         try:
-            countries = request.env['res.partner'].search([])
+            # countries = request.env['res.partner'].search([])
 
             # if request.httprequest.data:
             #    domain = json.loads(request.httprequest.data)
 
-            data = []
-            for line in countries:
-                line_data = {
-                    'id': line.id,
-                    'name': line.name,
-                }
-                data.append(line_data)
+            # data = []
+            #for line in countries:
+            line_data = {
+                'id': line.id,
+                'name': line.name,
+            }
+            #    data.append(line_data)
 
-            json_data = {'result': data}
+            json_data = {'result': line_data}
 
             return Response(json.dumps(json_data), content_type='application/json;charset=utf-8', status=200)
 
         except Exception as e:
-            vmsg = f'Error line: {sys.exc_info()[2].tb_lineno} \nError Message: \n{e}'
-            return Response(f'Bad Request - {vmsg}', content_type='text/html;charset=utf-8', status=400)
+            # vmsg = f'Error line: {sys.exc_info()[2].tb_lineno} \nError Message: \n{e}'
+            log = self._log(line_data, 'erro', 'Não foi concluída com sucesso.', line)
+            return Response(f'Bad Request - {log}', content_type='text/html;charset=utf-8', status=400)
