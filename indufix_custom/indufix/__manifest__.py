@@ -5,6 +5,7 @@
     'summary': 'trainning',
     'author': 'Guilherme',
     "depends": [
+        "base",
         "sale"
     ],
     "data": [
