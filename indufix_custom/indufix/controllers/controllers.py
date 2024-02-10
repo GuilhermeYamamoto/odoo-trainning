@@ -42,5 +42,5 @@ class apiBitrix(http.Controller):
 
         except Exception as e:
             # vmsg = f'Error line: {sys.exc_info()[2].tb_lineno} \nError Message: \n{e}'
-            log = self._log(line_data, 'erro', 'Não foi concluída com sucesso.', line)
-            return Response(f'Bad Request - {log}', content_type='text/html;charset=utf-8', status=400)
+            _logger.info({e})
+            return False
