@@ -25,24 +25,18 @@ class apiBitrix(http.Controller):
     @http.route('/api/bitrix/', type='http', methods=['GET'], auth='public')
     def get_bitrix(self, **kwargs):
         try:
+            _logger.info('Iniciando o método get_bitrix')
             countries = request.env['res.partner'].sudo().search([])
 
-            # if request.httprequest.data:
-            #    domain = json.loads(request.httprequest.data)
-
-            data = []
-            for line in countries:
-                line_data = {
-                    'id': line.id,
-                    'name': line.name,
-                }
-                data.append(line_data)
+            # Restante do seu código...
 
             json_data = {'result': data}
 
             return Response(json.dumps(json_data), content_type='application/json;charset=utf-8', status=200)
 
         except Exception as e:
-            _logger.info(str(e))
+            _logger.error(str(e))
             vmsg = f'Error line: {sys.exc_info()[2].tb_lineno} \nError Message: \n{e}'
+            _logger.error(vmsg)
             return Response(f'Bad Request - {vmsg}', content_type='text/html;charset=utf-8', status=400)
+
