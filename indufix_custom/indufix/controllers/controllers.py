@@ -5,7 +5,7 @@ import logging
 from odoo import http, tools
 from odoo.http import content_disposition, dispatch_rpc, request, serialize_exception as _serialize_exception, Response
 
-# _logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 class apiBitrix(http.Controller):
     def _log(self, line_data, status, message, line=None):
