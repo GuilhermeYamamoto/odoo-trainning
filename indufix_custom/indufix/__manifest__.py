@@ -10,8 +10,8 @@
     ],
     'data': [
         'views/meu_primeiro_modelo_views.xml',
-        'views/estate_property_views.xml',
-    ],
+        'views/estate_property_views.xml'
+    ]
     # 'application': True,  # Adiciona esta linha para indicar que é uma aplicação web
     # 'installable': True,
     # 'auto_install': False,
