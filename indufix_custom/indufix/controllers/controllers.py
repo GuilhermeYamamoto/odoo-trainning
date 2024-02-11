@@ -3,7 +3,7 @@ import json
 import logging
 
 from odoo import http
-from odoo.http import request as Response
+from odoo.http import request, Response, JsonRequest
 
 _logger = logging.getLogger(__name__)
 
@@ -32,11 +32,11 @@ class apiBitrix(http.Controller):
 
             json_data = {'result': countries}
 
-            return http.Response(json.dumps(json_data), content_type='application/json;charset=utf-8', status=200)
+            return Response(json.dumps(json_data), content_type='application/json;charset=utf-8', status=200)
 
         except Exception as e:
             _logger.error(str(e))
             vmsg = f'Error line: {sys.exc_info()[2].tb_lineno} \nError Message: \n{e}'
             _logger.error(vmsg)
-            return http.Response(f'Bad Request - {vmsg}', content_type='text/html;charset=utf-8', status=400)
+            return Response(f'Bad Request - {vmsg}', content_type='text/html;charset=utf-8', status=400)
 
