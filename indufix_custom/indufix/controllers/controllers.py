@@ -29,14 +29,13 @@ class apiBitrix(http.Controller):
             countries = 'teste'
             json_data = {'result': countries}
 
-            headers = {'Content-Type': 'application/json;charset=utf-8'}
-            return json.dumps(json_data), 200, headers
+            return http.Response(json.dumps(json_data), content_type='application/json;charset=utf-8', status=200)
 
         except Exception as e:
             _logger.error(str(e))
             vmsg = f'Error line: {sys.exc_info()[2].tb_lineno} \nError Message: \n{e}'
             _logger.error(vmsg)
-            return f'Bad Request - {vmsg}', 400, {'Content-Type': 'text/html;charset=utf-8'}
+            return http.Response(f'Bad Request - {vmsg}', content_type='text/html;charset=utf-8', status=400)
         
     """
     @http.route('/api/bitrix/', type='http', methods=['GET'], auth='public')
