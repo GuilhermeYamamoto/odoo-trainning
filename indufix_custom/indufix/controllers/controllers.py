@@ -26,6 +26,23 @@ class apiBitrix(http.Controller):
     def get_bitrix(self, **kwargs):
         try:
             _logger.info('Iniciando o método get_bitrix')
+            countries = 'teste'
+            json_data = {'result': countries}
+
+            headers = {'Content-Type': 'application/json;charset=utf-8'}
+            return json.dumps(json_data), 200, headers
+
+        except Exception as e:
+            _logger.error(str(e))
+            vmsg = f'Error line: {sys.exc_info()[2].tb_lineno} \nError Message: \n{e}'
+            _logger.error(vmsg)
+            return f'Bad Request - {vmsg}', 400, {'Content-Type': 'text/html;charset=utf-8'}
+        
+    """
+    @http.route('/api/bitrix/', type='http', methods=['GET'], auth='public')
+    def get_bitrix(self, **kwargs):
+        try:
+            _logger.info('Iniciando o método get_bitrix')
             # countries = request.env['res.partner'].sudo().search([])
             countries = 'teste'
             # Restante do seu código...
@@ -39,4 +56,4 @@ class apiBitrix(http.Controller):
             vmsg = f'Error line: {sys.exc_info()[2].tb_lineno} \nError Message: \n{e}'
             _logger.error(vmsg)
             return Response(f'Bad Request - {vmsg}', content_type='text/html;charset=utf-8', status=400)
-
+    """
