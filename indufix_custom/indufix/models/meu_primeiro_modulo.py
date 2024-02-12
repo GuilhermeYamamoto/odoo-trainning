@@ -6,4 +6,6 @@ class MeuPrimeiroModulo(models.Model):
 
     campo1 = fields.Integer(string="Campo 1")
 
-    
+class TesteModel(models.Model):
+    _name = 'test_model'
+    _description = 'test model'
